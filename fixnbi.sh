@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Set Server URL Var
-SERVERURL="https://"`ifconfig | grep -m 1 '10.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}' | awk '{print $2}'`":60443"
+SERVERURL="https://"`ifconfig | grep -A 1 en0 | grep netmask | awk '{print $2}'`":60443"
 
 # Set Netboot Image Name
 NETBOOTNBINAME=(DeployStudio_Lion DeployStudio_Yos)
